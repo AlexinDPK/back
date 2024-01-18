@@ -3,9 +3,9 @@
     "version": "2.2.12",
     "width": 2000,
     "height": 2000,
-    "scrollTop": -887,
-    "scrollLeft": -324,
-    "zoomLevel": 1,
+    "scrollTop": -1311,
+    "scrollLeft": -449,
+    "zoomLevel": 0.8,
     "show": {
       "tableComment": true,
       "columnComment": true,
@@ -213,7 +213,7 @@
           "active": false,
           "left": 1181.4944,
           "top": 1471.9358,
-          "zIndex": 5,
+          "zIndex": 7,
           "widthName": 60,
           "widthComment": 83.61181640625,
           "color": "#FFEB3B"
@@ -414,7 +414,7 @@
           "active": false,
           "left": 343.153,
           "top": 1050.7887,
-          "zIndex": 6,
+          "zIndex": 5,
           "widthName": 60,
           "widthComment": 83.61181640625,
           "color": "#3F51B5"
@@ -867,10 +867,142 @@
           "active": false,
           "left": 361.6508,
           "top": 1518.6308,
-          "zIndex": 7,
+          "zIndex": 6,
           "widthName": 63.419921875,
           "widthComment": 83.61181640625,
           "color": "#FF0095"
+        },
+        "visible": true
+      },
+      {
+        "id": "459804f2-8053-4f6b-a843-f7c8b3c1ede7",
+        "name": "message",
+        "comment": "채팅방 메시지 테이블",
+        "columns": [
+          {
+            "id": "8d0d5216-0453-44ff-9e44-d728b34667d8",
+            "name": "id",
+            "comment": "메시지 아이디",
+            "dataType": "INT",
+            "default": "AUTO_INCREMENT",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": true,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": true,
+              "fk": false,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 83.61181640625,
+              "widthDataType": 60,
+              "widthDefault": 122.38330078125
+            }
+          },
+          {
+            "id": "fd293c8c-4176-471e-8ada-47def8fecb56",
+            "name": "content",
+            "comment": "메시지 내용",
+            "dataType": "TEXT",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 70.61181640625,
+              "widthDataType": 60,
+              "widthDefault": 60
+            }
+          },
+          {
+            "id": "17f559a9-e15c-47d0-a5ec-514439af4ae9",
+            "name": "timestamp",
+            "comment": "메시지 작성 시간",
+            "dataType": "TIMESTAMP",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": false
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 61.9599609375,
+              "widthComment": 100.2236328125,
+              "widthDataType": 76.87060546875,
+              "widthDefault": 60
+            }
+          },
+          {
+            "id": "ea9744d7-7130-4b73-bb2e-9705f9df4c1b",
+            "name": "room_number",
+            "comment": "채팅방 번호",
+            "dataType": "INT",
+            "default": "AUTO_INCREMENT",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": true,
+              "pfk": false,
+              "widthName": 82.92626953125,
+              "widthComment": 70.61181640625,
+              "widthDataType": 60,
+              "widthDefault": 122.38330078125
+            }
+          },
+          {
+            "id": "10d6775e-13f4-46ee-9f1e-539e8a346c2b",
+            "name": "email",
+            "comment": "사용자 이메일",
+            "dataType": "VARCHAR(50)",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": true,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 83.61181640625,
+              "widthDataType": 87.71875,
+              "widthDefault": 60
+            }
+          }
+        ],
+        "ui": {
+          "active": false,
+          "left": 664.0002,
+          "top": 1759.1111,
+          "zIndex": 8,
+          "widthName": 60,
+          "widthComment": 120,
+          "color": "#EC00FF"
         },
         "visible": true
       }
@@ -919,7 +1051,7 @@
             "11661b48-02aa-4c2e-ab1e-1d76257c616e"
           ],
           "x": 1181.4944,
-          "y": 1631.3108,
+          "y": 1649.019133333333,
           "direction": "left"
         },
         "end": {
@@ -1075,7 +1207,7 @@
             "11661b48-02aa-4c2e-ab1e-1d76257c616e"
           ],
           "x": 1181.4944,
-          "y": 1525.0608,
+          "y": 1578.1857999999997,
           "direction": "left"
         },
         "end": {
@@ -1084,10 +1216,62 @@
             "85253ff5-1621-418d-bc20-a95e6c6972cf"
           ],
           "x": 848.92179609375,
-          "y": 1583.8808,
+          "y": 1616.5058,
           "direction": "right"
         },
         "constraintName": "fk_user_to_chat_room",
+        "visible": true
+      },
+      {
+        "id": "8cef0c09-729c-4523-929d-0809cd40aaa6",
+        "identification": false,
+        "relationshipType": "OneN",
+        "startRelationshipType": "Dash",
+        "start": {
+          "tableId": "c0953959-f950-43ed-a009-4f935f7f59d5",
+          "columnIds": [
+            "7e3f4609-0e0a-4595-8f32-8d9b8860aff2"
+          ],
+          "x": 848.92179609375,
+          "y": 1551.2558,
+          "direction": "right"
+        },
+        "end": {
+          "tableId": "459804f2-8053-4f6b-a843-f7c8b3c1ede7",
+          "columnIds": [
+            "ea9744d7-7130-4b73-bb2e-9705f9df4c1b"
+          ],
+          "x": 914.1261765625,
+          "y": 1759.1111,
+          "direction": "top"
+        },
+        "constraintName": "fk_chat_room_to_message",
+        "visible": true
+      },
+      {
+        "id": "0a394606-cbaa-4089-89cc-884b186fa86d",
+        "identification": false,
+        "relationshipType": "OneN",
+        "startRelationshipType": "Dash",
+        "start": {
+          "tableId": "76c569f4-3463-4454-8e62-49b07fc5750e",
+          "columnIds": [
+            "11661b48-02aa-4c2e-ab1e-1d76257c616e"
+          ],
+          "x": 1181.4944,
+          "y": 1507.3524666666665,
+          "direction": "left"
+        },
+        "end": {
+          "tableId": "459804f2-8053-4f6b-a843-f7c8b3c1ede7",
+          "columnIds": [
+            "10d6775e-13f4-46ee-9f1e-539e8a346c2b"
+          ],
+          "x": 1164.252153125,
+          "y": 1844.8611,
+          "direction": "right"
+        },
+        "constraintName": "fk_user_to_message",
         "visible": true
       }
     ]
