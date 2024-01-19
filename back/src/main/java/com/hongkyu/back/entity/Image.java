@@ -24,4 +24,9 @@ public class Image {
 
     private String image;
 
+    public Image(int boardNumber, String image) {
+        this.boardNumber = boardNumber;
+        this.image = image;
+    }
+
 }
