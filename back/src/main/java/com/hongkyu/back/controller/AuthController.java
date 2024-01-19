@@ -5,6 +5,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.view.RedirectView;
 
 import com.hongkyu.back.dto.request.auth.SignInRequestDto;
 import com.hongkyu.back.dto.response.auth.SignInResponseDto;
@@ -12,6 +13,8 @@ import com.hongkyu.back.dto.request.auth.SignUpRequestDto;
 import com.hongkyu.back.dto.response.auth.SignUpResponseDto;
 import com.hongkyu.back.service.AuthService;
 
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpSession;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 
@@ -36,5 +39,15 @@ public class AuthController {
             @RequestBody @Valid SignInRequestDto requestBody) {
         ResponseEntity<? super SignInResponseDto> response = authService.signIn(requestBody);
         return response;
+    }
+
+    // 로그아웃
+    @PostMapping("/sign-out")
+    public RedirectView signOut(HttpServletRequest request) {
+        HttpSession session = request.getSession(false);
+        if (session != null) {
+            session.invalidate();
+        }
+        return new RedirectView("/sign-in", true);
     }
 }
