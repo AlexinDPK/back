@@ -5,9 +5,11 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import com.hongkyu.back.dto.request.auth.IdCheckRequestDto;
 import com.hongkyu.back.dto.request.auth.SignInRequestDto;
 import com.hongkyu.back.dto.request.auth.SignUpRequestDto;
 import com.hongkyu.back.dto.response.ResponseDto;
+import com.hongkyu.back.dto.response.auth.IdCheckResponseDto;
 import com.hongkyu.back.dto.response.auth.SignInResponseDto;
 import com.hongkyu.back.dto.response.auth.SignUpResponseDto;
 import com.hongkyu.back.entity.User;
@@ -89,6 +91,23 @@ public class AuthServiceImplement implements AuthService {
         }
 
         return SignInResponseDto.success(token);
+    }
+
+    // 아이디 중복 체크
+    @Override
+    public ResponseEntity<? super IdCheckResponseDto> idCheck(IdCheckRequestDto dto) {
+
+        try {
+            String userId = dto.getId();
+            boolean isExistId = userRepository.existsByEmail(userId);
+            if (isExistId)
+                return IdCheckResponseDto.duplicateId();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            return ResponseDto.databaseError();
+        }
+        return IdCheckResponseDto.success();
     }
 
 }
