@@ -7,6 +7,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.view.RedirectView;
 
+import com.hongkyu.back.dto.request.auth.IdCheckRequestDto;
+import com.hongkyu.back.dto.response.auth.IdCheckResponseDto;
 import com.hongkyu.back.dto.request.auth.SignInRequestDto;
 import com.hongkyu.back.dto.response.auth.SignInResponseDto;
 import com.hongkyu.back.dto.request.auth.SignUpRequestDto;
@@ -30,6 +32,14 @@ public class AuthController {
     public ResponseEntity<? super SignUpResponseDto> signUp(
             @RequestBody @Valid SignUpRequestDto requestBody) {
         ResponseEntity<? super SignUpResponseDto> response = authService.signUp(requestBody);
+        return response;
+    }
+
+    // 아이디 중복 체크
+    @PostMapping("/id-check")
+    public ResponseEntity<? super IdCheckResponseDto> idCheck(
+            @RequestBody @Valid IdCheckRequestDto requestBody) {
+        ResponseEntity<? super IdCheckResponseDto> response = authService.idCheck(requestBody);
         return response;
     }
 
