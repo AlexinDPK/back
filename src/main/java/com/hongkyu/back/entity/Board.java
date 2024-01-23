@@ -4,12 +4,12 @@ import jakarta.persistence.*;
 import lombok.*;
 import java.time.LocalDateTime;
 
-@Getter
-@Setter // 게시글 수정을 위해 Setter 추가 // KYJ
-@NoArgsConstructor
-@AllArgsConstructor
 @Entity(name = "board")
 @Table(name = "board")
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
 public class Board {
 
     @Id
@@ -39,4 +39,9 @@ public class Board {
     public void setUpdatedAt(LocalDateTime updatedAt) {
         this.updatedAt = updatedAt;
     }
+
+    // 사용자 엔티티와의 관계 설정 (예: 게시글 작성자)
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "user_id")
+    private User user; // User 클래스는 별도로 정의되어야 합니다.
 }
